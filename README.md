@@ -5,10 +5,12 @@ A production-ready todo application built with Node.js, React, and Docker, featu
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Docker Desktop with BuildKit enabled
 - Node.js 22+ (for local development)
 
 ### Production Deployment
+
 ```bash
 # Build secure image with SBOM and provenance attestations
 .\build-with-attestations.bat
@@ -18,6 +20,7 @@ docker-compose up -d
 ```
 
 ### Local Development
+
 ```bash
 # Install dependencies
 cd backend && npm install
@@ -46,18 +49,21 @@ docker-compose up
 ## 🛡️ Security Features
 
 ✅ **Docker Scout Compliant**
+
 - Non-root user execution (UID 1001)
 - No critical/high vulnerabilities
 - Supply chain attestations (SBOM + Provenance)
 - Security capability dropping
 
 ✅ **Production Hardening**
+
 - Multi-stage Docker builds for minimal attack surface
 - Health checks and proper signal handling
 - Secure secrets management
 - Read-only filesystems where possible
 
 ✅ **Supply Chain Security**
+
 - Software Bill of Materials (SBOM) generation
 - Build provenance attestations
 - Dependency vulnerability scanning
@@ -86,6 +92,7 @@ docker-compose up
 ## 🔧 Available Commands
 
 ### Build Commands
+
 ```bash
 # Standard build
 docker build -f Dockerfile.secure -t my-todo-app .
@@ -98,6 +105,7 @@ docker-compose build
 ```
 
 ### Deployment Commands
+
 ```bash
 # Production deployment
 docker-compose up -d
@@ -110,6 +118,7 @@ docker-compose up --scale backend=2
 ```
 
 ### Security Commands
+
 ```bash
 # Scan for vulnerabilities
 docker scout cves my-todo-app:latest
@@ -124,40 +133,46 @@ docker inspect my-todo-app:latest
 ## 🔐 Environment Variables
 
 ### Backend Configuration
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `NODE_ENV` | `production` | Runtime environment |
-| `MYSQL_HOST` | `mysql` | Database hostname |
-| `MYSQL_USER` | `root` | Database username |
-| `MYSQL_PASSWORD` | `secret` | Database password |
-| `MYSQL_DB` | `todos` | Database name |
-| `PORT` | `3000` | Application port |
+
+| Variable         | Default      | Description         |
+| ---------------- | ------------ | ------------------- |
+| `NODE_ENV`       | `production` | Runtime environment |
+| `MYSQL_HOST`     | `mysql`      | Database hostname   |
+| `MYSQL_USER`     | `root`       | Database username   |
+| `MYSQL_PASSWORD` | `secret`     | Database password   |
+| `MYSQL_DB`       | `todos`      | Database name       |
+| `PORT`           | `3000`       | Application port    |
 
 ### Frontend Configuration
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `VITE_API_URL` | `/api` | Backend API base URL |
+
+| Variable       | Default | Description          |
+| -------------- | ------- | -------------------- |
+| `VITE_API_URL` | `/api`  | Backend API base URL |
 
 ## 📊 API Endpoints
 
 ### Todo Management
+
 - `GET /api/items` - List all todos
 - `POST /api/items` - Create new todo
 - `PUT /api/items/:id` - Update todo
 - `DELETE /api/items/:id` - Delete todo
 
 ### Health & Status
+
 - `GET /api/health` - Health check endpoint
 - `GET /api/greeting` - Welcome message
 
 ## 🏃‍♂️ Performance
 
 **Build Times**:
+
 - Multi-stage build: ~3-5 minutes
 - Development build: ~30 seconds
 - Hot reload: ~1-2 seconds
 
 **Runtime Performance**:
+
 - Memory usage: ~150MB (production)
 - CPU usage: <5% (idle)
 - Response time: <100ms (p95)
@@ -178,12 +193,15 @@ docker-compose -f docker-compose.test.yml up
 ## 🔍 Monitoring
 
 ### Health Checks
+
 The application includes comprehensive health monitoring:
+
 - Container health checks every 30 seconds
 - Database connection validation
 - Memory and CPU usage tracking
 
 ### Logging
+
 - Structured JSON logging
 - Request/response tracing
 - Error tracking and alerting
@@ -191,6 +209,7 @@ The application includes comprehensive health monitoring:
 ## 🚢 Deployment
 
 ### Docker Hub
+
 ```bash
 # Tag and push
 docker tag my-todo-app username/todo-app:latest
@@ -198,6 +217,7 @@ docker push username/todo-app:latest
 ```
 
 ### Kubernetes
+
 ```bash
 # Generate Kubernetes manifests
 docker-compose config > k8s-manifests.yaml
@@ -205,6 +225,7 @@ kubectl apply -f k8s-manifests.yaml
 ```
 
 ### Cloud Providers
+
 - **AWS**: ECS, EKS, or Elastic Beanstalk
 - **Azure**: Container Instances or AKS
 - **GCP**: Cloud Run or GKE
